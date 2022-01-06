@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{88C604F1-8655-4497-925E-6164BF133553}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{C080ECCB-234A-4966-BD09-40141228258C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{8ED4A1EB-5CB6-4905-ACCF-2F117424EF39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88C604F1-8655-4497-925E-6164BF133553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C604F1-8655-4497-925E-6164BF133553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C604F1-8655-4497-925E-6164BF133553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C604F1-8655-4497-925E-6164BF133553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C080ECCB-234A-4966-BD09-40141228258C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C080ECCB-234A-4966-BD09-40141228258C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C080ECCB-234A-4966-BD09-40141228258C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C080ECCB-234A-4966-BD09-40141228258C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ED4A1EB-5CB6-4905-ACCF-2F117424EF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ED4A1EB-5CB6-4905-ACCF-2F117424EF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ED4A1EB-5CB6-4905-ACCF-2F117424EF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ED4A1EB-5CB6-4905-ACCF-2F117424EF39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85A4DF32-BE82-43D2-952F-67D77DC6D55E}
+	EndGlobalSection
+EndGlobal
