@@ -5,9 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspose.Zip" Version="21.11.0" />
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Momentum.Pm.PortalApi" Version="5.18.0.35" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SharpCompress" Version="0.30.1" />
     <PackageReference Include="TinCan" Version="1.0.0" />
   </ItemGroup>
 

@@ -2,9 +2,12 @@
 using Core.IServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SharpCompress.Common;
+using SharpCompress.Readers;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using TinCan;
 using TinCan.LRSResponses;
 
@@ -43,6 +46,7 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public TaskResult UploadScorm()
         {
+            string myPath = "C:\\Users\\User\\source\\repos\\WebApplication2\\Core\\ScormFiles\\";
             TaskResult result = new TaskResult();
             try
             {
@@ -57,12 +61,20 @@ namespace WebApplication2.Controllers
                 //decoder for image name , no duplicate errors
                 string attachmentFileName = $"{fileName}.{Path.GetExtension(file.FileName).Replace(".", "")}";
                 //path for angualr project file C:\\Users\\User\\source\\repos\\WebApplication2\\Core\\ScormFiles\\
-                var fullPath = Path.Combine("C:\\Users\\User\\source\\repos\\WebApplication2\\Core\\ScormFiles\\", attachmentFileName);
+                var fullPath = Path.Combine(myPath, attachmentFileName);
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
-                
+
+               // string startPath = @"c:\example\start";
+                string zipPath = Path.Combine(myPath, attachmentFileName);
+                var extractPath = Path.Combine(@"C:\\Users\\User\\source\\repos\\WebApplication2\\Core\\Extracted Scorm FIles\\", attachmentFileName);
+
+              
+
+                ZipFile.ExtractToDirectory(zipPath, extractPath);
+
                 result.result = true;
                 result.description = "Task Completed Succesfully";
                 return result;
