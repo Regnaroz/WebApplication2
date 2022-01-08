@@ -1,7 +1,10 @@
-﻿using Core.IServices;
+﻿using Core.DTO;
+using Core.IServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using TinCan;
 using TinCan.LRSResponses;
 
@@ -31,7 +34,48 @@ namespace WebApplication2.Controllers
         [Route("SendStatement")]
         public bool sendStatement()
         {
-            return apiService.SendStatement();        }
+            return apiService.SendStatement();    
         }
+
+        [ProducesResponseType(typeof(List<TaskResult>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(TaskResult), StatusCodes.Status400BadRequest)]
+        [Route("UploadScorm")]
+        [HttpPost]
+        public TaskResult UploadScorm()
+        {
+            TaskResult result = new TaskResult();
+            try
+            {
+                var file = Request.Form.Files[0];
+                byte[] fileContent;
+                using (var ms = new MemoryStream())
+                {
+                    file.CopyTo(ms);
+                    fileContent = ms.ToArray();
+                }
+                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+                //decoder for image name , no duplicate errors
+                string attachmentFileName = $"{fileName}.{Path.GetExtension(file.FileName).Replace(".", "")}";
+                //path for angualr project file C:\\Users\\User\\source\\repos\\WebApplication2\\Core\\ScormFiles\\
+                var fullPath = Path.Combine("C:\\Users\\User\\source\\repos\\WebApplication2\\Core\\ScormFiles\\", attachmentFileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                
+                result.result = true;
+                result.description = "Task Completed Succesfully";
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.result = false;
+                result.description = e.Message;
+                return result;
+            }
+        }
+
+
+    }
  
 }
